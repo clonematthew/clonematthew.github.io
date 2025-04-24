@@ -1,5 +1,5 @@
 ///
-/// Ethereal by HTML5 UP
+/// Forty by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
@@ -13,8 +13,8 @@
 			margin-bottom: 0;
 		}
 
-		> .fields {
-			$gutter: (_size(element-margin) * 1);
+		> .fields  {
+			$gutter: (_size(element-margin) * 0.75);
 
 			@include vendor('display', 'flex');
 			@include vendor('flex-wrap', 'wrap');
@@ -41,7 +41,7 @@
 			}
 		}
 
-		@include breakpoint('<=small') {
+		@include breakpoint('<=xsmall') {
 			> .fields {
 				$gutter: (_size(element-margin) * 0.75);
 
@@ -71,26 +71,29 @@
 	label {
 		color: _palette(fg-bold);
 		display: block;
-		font-family: _font(family-heading);
-		font-size: 0.8rem;
-		font-weight: _font(weight-heading);
-		margin: 0 0 (_size(element-margin) * 0.325) 0;
+		font-size: 0.8em;
+		font-weight: _font(weight-bold);
+		letter-spacing: _font(letter-spacing-alt);
+		margin: 0 0 (_size(element-margin) * 0.5) 0;
+		text-transform: uppercase;
 	}
 
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
 	input[type="tel"],
+	input[type="search"],
+	input[type="url"],
 	select,
 	textarea {
 		@include vendor('appearance', 'none');
-		background: transparent;
-		border: solid 2px _palette(border);
-		border-radius: _size(border-radius);
+		background: _palette(border-bg);
+		border: none;
+		border-radius: 0;
 		color: inherit;
 		display: block;
 		outline: 0;
-		padding: 0 0.75rem;
+		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
 
@@ -99,13 +102,9 @@
 		}
 
 		&:focus {
-			border-color: _palette(accent3);
+			border-color: _palette(highlight);
+			box-shadow: 0 0 0 2px _palette(highlight);
 		}
-	}
-
-	option {
-		background-color: _palette(fg-bold);
-		color: _palette(bg);
 	}
 
 	select {
@@ -136,12 +135,15 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="tel"],
+	input[type="search"],
+	input[type="url"],
 	select {
 		height: _size(element-height);
 	}
 
 	textarea {
-		padding: 0.75rem 1rem;
+		padding: 0.75em 1em;
 	}
 
 	input[type="checkbox"],
@@ -149,95 +151,49 @@
 		@include vendor('appearance', 'none');
 		display: block;
 		float: left;
-		margin-right: -2rem;
+		margin-right: -2em;
 		opacity: 0;
-		width: 1rem;
+		width: 1em;
 		z-index: -1;
 
 		& + label {
 			@include icon(false, solid);
-			position: relative;
 			color: _palette(fg);
 			cursor: pointer;
 			display: inline-block;
-			font-size: 1rem;
 			font-weight: _font(weight);
-			margin-bottom: 0;
-			padding-left: (_size(element-height) * 0.6) + 1rem;
-			padding-right: 1rem;
+			padding-left: (_size(element-height) * 0.6) + 1em;
+			padding-right: 0.75em;
+			position: relative;
 
 			&:before {
+				background: _palette(border-bg);
 				content: '';
 				display: inline-block;
-				font-size: 0.8rem;
-				position: absolute;
-				top: 0;
+				font-size: 0.8em;
+				height: (_size(element-height) * 0.75);
 				left: 0;
-				width: (_size(element-height) * 0.675);
-				height: (_size(element-height) * 0.675);
-				line-height: (_size(element-height) * 0.675);
-				background: _palette(border-bg);
-				border: solid 1px _palette(border);
-				border-radius: _size(border-radius);
-				color: _palette(bg);
+				letter-spacing: 0;
+				line-height: (_size(element-height) * 0.75);
+				position: absolute;
 				text-align: center;
-
-				body.is-ie & {
-					line-height: 1.5;
-				}
+				top: 0;
+				width: (_size(element-height) * 0.75);
 			}
 		}
 
 		&:checked + label {
 			&:before {
-				content: '\f00c';
 				background: _palette(fg-bold);
-				border-color: _palette(fg-bold);
+				border-color: _palette(highlight);
+				content: '\f00c';
+				color: _palette(bg);
 			}
 		}
 
 		&:focus + label {
 			&:before {
-				border-color: _palette(accent3);
-				box-shadow: 0 0 0 1px _palette(accent3);
-			}
-		}
-
-		&:focus:checked + label {
-			&:before {
-				background: _palette(accent3);
-			}
-		}
-
-		&.color1 {
-			& + label {
-				&:before {
-					color: _palette(accent1);
-				}
-			}
-		}
-
-		&.color2 {
-			& + label {
-				&:before {
-					color: _palette(accent2);
-				}
-			}
-		}
-
-		&.color3 {
-			& + label {
-				&:before {
-					color: _palette(accent3);
-				}
-			}
-		}
-
-		&.color4 {
-			& + label {
-				&:before {
-					color: _palette(accent4);
-				}
+				box-shadow: 0 0 0 2px _palette(highlight);
 			}
 		}
 	}
@@ -245,7 +201,6 @@
 	input[type="checkbox"] {
 		& + label {
 			&:before {
-				border-radius: _size(border-radius);
 			}
 		}
 	}
