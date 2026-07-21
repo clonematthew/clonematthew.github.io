@@ -26,82 +26,100 @@ body {
 .links-container {
     position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
     z-index: 1;
-    background: var(--card-bg);
-    color: var(--text-color);
-    font-size: 1em;
-    padding: 6px calc(12px + env(safe-area-inset-right)) 6px 12px;
-    text-align: left;
-    box-shadow: 0 2px 4px var(--shadow-color);
-    box-sizing: border-box;
-    font-family: monospace;
+
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin: 0;
-}
+    justify-content: space-between;
+    align-items: center;
 
-.email {
-    display: none;
-    margin: 0;
-}
-
-.social-link {
-    display: none;
-}
-
-.logo {
-    max-width: 20px;
-    aspect-ratio: 1/1;
-    border-radius: 3px;
-    padding: 0px;
-    margin: 0;
-}
-
-.contact {
-    position: relative;
-}
-
-@media (min-width: 820px) {
-    .social-link {
-        display: inline-flex;
-        text-decoration: none;
-        color: var(--text-color);
-    }
-
-    .social-link:hover {
-        text-decoration: underline;
-    }
-
-    .logo {
-        max-width: 12px;
-    }
-}
-
-@media (min-width: 480px) {
-    .email {
-        display: inline-flex;
-        text-decoration: underline;
-        color: var(--text-colour);
-        margin-left: 3px;
-        margin-right: 5px;
-        margin-bottom: 2px;
-    }
+    width: 100%;
+    background: var(--card-bg);
+    color: var(--text-colour);
+    font-family: monospace;
 }
 
 .links-left {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
     flex: 1;
-    margin: 0;
-    padding: 0;
+    min-width: 0;
+    padding: 2px 0 2px 0;
 }
 
 .links-right {
-    flex: 0.1;
-    display: inline-flex;
+    margin-left: auto;
+    padding: 5px;
+    flex-shrink: 0;
+}
+
+.links-container a {
+    text-decoration: none;
+    color: var(--text-colour);
+}
+
+.contact {
+    width: fit-content;
     margin: 0;
+    padding: 5px;
+    text-wrap: nowrap;
+    display: inline-block;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
     padding: 0;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.social-link span:hover {
+    text-decoration: underline;
+}
+
+.email {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;   
+}
+
+/* Remove the link text on smaller screens */
+@media (max-width: 900px) {
+    .social-link span {
+        display: none;
+    }
+
+    .social-link {
+        gap: 0;
+    }
+}
+
+/* Now remove the e-mail text on phones */
+@media (max-width: 500px) {
+    .links-right span {
+        display: none;
+    }
 }
 
 .main-content {

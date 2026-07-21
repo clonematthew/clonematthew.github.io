@@ -8,28 +8,43 @@
 </head>
 
 <body>
-    <!-- Links Container -->
     <div class ="all">
+        <!-- Links Container, sticky at the top of the page, changes based on screen width -->
         <div class="links-container">
             <div class="links-left">
-                <a class="contact">Contact Me! --></a>
-                <a href="https://www.instagram.com/clonematthew"><img src="./instagramLogo.svg" class="logo"></a>
-                <a href="https://www.instagram.com/clonematthew" class="social-link">Instagram</a>
+                <p class="contact">Contact Me! --></p>
+                <div class="logos">
+                    <a href="https://www.instagram.com/clonematthew" class="social-link">
+                        <img src="./instagramLogo.svg" class="logo">
+                        <span>Instagram</span>
+                    </a>
 
-                <a href="https://www.linkedin.com/in/matthewcusack/"><img src="./linkedInLogo.svg" class="logo"></a>
-                <a href="https://www.linkedin.com/in/matthewcusack/" class="social-link">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/matthewcusack/" class="social-link">
+                        <img src="./linkedInLogo.svg" class="logo">
+                        <span>LinkedIn</span>
+                    </a>
 
-                <a href="https://www.github.com/clonematthew"><img src="./githubLogo.svg" class="logo"></a>
-                <a href="https://www.github.com/clonematthew" class="social-link">GitHub</a>
+                    <a href="https://www.github.com/clonematthew" class="social-link">
+                        <img src="./githubLogo.svg" class="logo">
+                        <span>GitHub</span>
+                    </a>
 
-                <a href="https://orcid.org/0009-0003-4679-3333"><img src="./orcidLogo.svg" class="logo"></a>
-                <a href="https://orcid.org/0009-0003-4679-3333" class="social-link">ORCID</a>
+                    <a href="https://orcid.org/0009-0003-4679-3333" class="social-link">
+                        <img src="./orcidLogo.svg" class="logo">
+                        <span>ORCID</span>
+                    </a>
 
-                <a href="https://profiles.cardiff.ac.uk/staff/cusackmt"><img src="./cardiffLogo.svg" class="logo"></a>
-                <a href="https://profiles.cardiff.ac.uk/staff/cusackmt" class="social-link">Cardiff University</a>
+                    <a href="https://profiles.cardiff.ac.uk/staff/cusackmt" class="social-link">
+                        <img src="./cardiffLogo.svg" class="logo">
+                        <span>Cardiff University</span>
+                    </a>
+                </div>
             </div>
             <div class="links-right">
-                <a href="cusackmt@cardiff.ac.uk" class="email">cusackmt@cardiff.ac.uk</a>
+                <a href="mailto:cusackmt@cardiff.ac.uk" class="email">
+                    <img src="./email.svg" class="logo">
+                    <span>cusackmt@cardiff.ac.uk</span>
+                </a>
             </div>
         </div>
 
@@ -63,38 +78,45 @@
 
                     <hr />
 
-                    <!-- Links Section -->
+                    <!-- Links Section, contains two columns of block links, shrinks to one column on smaller screens -->
                     <div class="items-container">
                         <div class="left-hand-items">
-                            <div class="outer-item" id="stardust">
-                                <a class="inner-item" href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.536.3518C/abstract">
+                            <a class="inner-item" href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.536.3518C/abstract">
+                                <div class="outer-item" id="stardust">
                                     <h3>The Fragmentation of Molecular Clouds in Starburst Envrionments</h3>
                                     <p>Read the paper on ADS!</p>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
 
-                            <div class="outer-item">
-                                <a class="inner-item" href="https://www.github.com/clonematthew/arepoICgen">
+                            <a class="inner-item" href="https://www.github.com/clonematthew/arepoICgen">
+                                <div class="outer-item">
                                     <h3>arepoICgen</h3>
                                     <p>A python package for generating initial conditions for the AREPO code.</p>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
+
+                            <a class="inner-item" href="https://www.github.com/clonematthew/apricot">
+                                <div class="outer-item">
+                                    <h3>apricot</h3>   
+                                    <p>A Fortran module for generating column-density images from AREPO snapshots.</p>
+                                </div>
+                            </a>
                         </div>
 
                         <div class="right-hand-items">
-                            <div class="outer-item" id="starswirl">
-                                <a class="inner-item" href="https://ui.adsabs.harvard.edu/abs/2026MNRAS.549ag880C/abstract">
+                            <a class="inner-item" href="https://ui.adsabs.harvard.edu/abs/2026MNRAS.549ag880C/abstract">
+                                <div class="outer-item" id="starswirl">
                                     <h3>The Impact of Radiation Envrionment on the Liftimes and Evolution of Circumstellar Discs</h3>
-                                    <p>Check out the paper on ADS!</p>
-                                </a>
-                            </div>
+                                    <p>Check out the paper on ADS!</p> 
+                                </div>
+                            </a>
 
-                            <div class="outer-item">
-                                <a class="inner-item" href="https://www.github.com/clonematthew/aRead">
+                            <a class="inner-item" href="https://www.github.com/clonematthew/aRead">
+                                <div class="outer-item">
                                     <h3>aRead</h3>
                                     <p>A python module for reading AREPO snapshots in the HDF5 format.</p>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
