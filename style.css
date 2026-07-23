@@ -113,12 +113,41 @@ body {
     .social-link {
         gap: 0;
     }
+
+    .logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contact {
+        font-size: 1.25em;
+    }
+
+    .email {
+        font-size: 1.25em;
+    }
 }
 
 /* Now remove the e-mail text on phones */
-@media (max-width: 500px) {
+@media (max-width: 610px) {
     .links-right span {
         display: none;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Remove contact text on smallest screens */
+@media (max-width: 450px) {
+    .contact {
+        display: none;
+    }
+
+    .links-left {
+        padding-left: 5px;
     }
 }
 
