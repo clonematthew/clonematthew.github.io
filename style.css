@@ -282,6 +282,8 @@ body {
     .disc-video {
         width: 35vw;
         height: 35vw;
+        max-width: 540px;
+        max-height: 540px;
     }
 }
 
