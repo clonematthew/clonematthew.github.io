@@ -43,24 +43,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Check where centre of the viewport is for card images on mobile
-if (window.matchMedia("(hover: none)").matches) {
-    document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".outer-item");
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".outer-item");
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("in-view");
-                } else {
-                    entry.target.classList.remove("in-view");
-                }
-            });
-        }, {
-            root: null,
-            rootMargin: "-60% 0px -60% 0px",
-            threshold: 0
+    function updateActiveCard() {
+        // Only activate on screens narrower than 800px
+        if (window.innerWidth >= 800) {
+            cards.forEach(card => card.classList.remove("in-view"));
+            return;
+        }
+
+        const viewportCentre = window.innerHeight / 2;
+
+        let closestCard = null;
+        let closestDistance = Infinity;
+
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const cardCentre = rect.top + rect.height / 2;
+            const distance = Math.abs(cardCentre - viewportCentre);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestCard = card;
+            }
         });
 
-        cards.forEach(card => observer.observe(card));
+        cards.forEach(card => {
+            card.classList.toggle("in-view", card === closestCard);
+        });
+    }
+
+    window.addEventListener("scroll", updateActiveCard, {
+        passive: true
     });
-}
+
+    window.addEventListener("resize", updateActiveCard);
+
+    updateActiveCard();
+});

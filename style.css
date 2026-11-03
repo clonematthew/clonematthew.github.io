@@ -327,23 +327,19 @@ body {
 }
 
 /* Desktop: hover */
-@media (hover: hover) {
-    .outer-item:hover {
-        background-size: cover;
-        background-position: center;
-        opacity: 0.75;
-        color: white; 
-    }
+.outer-item:hover {
+    background-size: cover;
+    background-position: center;
+    opacity: 0.75;
+    color: white; 
 }
 
 /* Mobile: active card */
-@media (hover: none) {
-    .outer-item.in-view {
-        background-size: cover;
-        background-position: center;
-        opacity: 0.75;
-        color: white; 
-    }
+.outer-item.in-view {
+    background-size: cover;
+    background-position: center;
+    opacity: 0.75;
+    color: white; 
 }
 
 #return:hover, #return.in-view {
