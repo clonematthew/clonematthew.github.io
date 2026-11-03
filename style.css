@@ -223,6 +223,11 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-bottom: 35vh;
+}
+
+@media (min-width: 800px) {
+    margin-bottom: 0;
 }
 
 .container {
@@ -313,8 +318,6 @@ body {
 ========================================= */
 
 .outer-item {
-    background-position: center;
-    background-size: cover;
     background-repeat: no-repeat;
 
     transition: 
@@ -323,37 +326,52 @@ body {
         color 0.25s ease;
 }
 
-.outer-item:hover {
-    opacity: 0.75;
-    color: white; 
+/* Desktop: hover */
+@media (hover: hover) {
+    .outer-item:hover {
+        background-size: cover;
+        background-position: center;
+        opacity: 0.75;
+        color: white; 
+    }
 }
 
-#return:hover {
+/* Mobile: active card */
+@media (hover: none) {
+    .outer-item.in-view {
+        background-size: cover;
+        background-position: center;
+        opacity: 0.75;
+        color: white; 
+    }
+}
+
+#return:hover, #return.in-view {
     color: var(--text-colour);
     opacity: 1;
 }
 
-#stardust:hover {
+#stardust:hover, #stardust.in-view {
     background-image: url("./images/prettyImagesHorizontal.png");
 }
 
-#starswirl:hover {
+#starswirl:hover, #starswirl.in-view {
     background-image: url("./images/discImagePanel.png");
 }
 
-#arepoICgen:hover {
+#arepoICgen:hover, #arepoICgen.in-view {
     background-image: url("./images/arepoICgenCode.png");
 }
 
-#apricot:hover {
+#apricot:hover, #apricot.in-view {
     background-image: url("./images/apricotExample.png");
 }
 
-#aRead:hover {
+#aRead:hover, #aRead.in-view {
     background-image: url("./images/aReadCode.png");
 }
 
-#movies:hover {
+#movies:hover, #movies.in-view {
     background-image: url("./movies/disc.gif");
 }
 

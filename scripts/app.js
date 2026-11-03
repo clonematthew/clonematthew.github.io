@@ -41,3 +41,26 @@ document.addEventListener('DOMContentLoaded', () => {
     loadHeader();
     initialiseParticles();
 });
+
+// Check where centre of the viewport is for card images on mobile
+if (window.matchMedia("(hover: none)").matches) {
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".outer-item");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in-view");
+                } else {
+                    entry.target.classList.remove("in-view");
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: "-60% 0px -60% 0px",
+            threshold: 0
+        });
+
+        cards.forEach(card => observer.observe(card));
+    });
+}
