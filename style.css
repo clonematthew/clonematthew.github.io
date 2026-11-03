@@ -1,32 +1,66 @@
+/* =========================================
+   Variables
+========================================= */
+
 :root {
+    /* Colours */
     --text-colour: #25343F;
     --container-bg: #E6F2DD;
     --body-bg: #B1D3B9;
     --shadow-colour: #659287;
     --card-bg: #EAEFEF;
+
+    /* Layout */
+    --container-width: 1300px;
+    --card-radius: 15px;
+}
+
+/* =========================================
+   Global Styles
+========================================= */
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0;
+    min-height: 100vh;
+    font-family: sans-serif;
     background-color: var(--body-bg);
     color: var(--text-colour);
 }
 
 .all {
-    display: column;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
+
+/* =========================================
+   Particles Background
+========================================= */
+
+#particles-js {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* =========================================
+   Navigation
+========================================= */
 
 .links-container {
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 10;
 
     display: flex;
     justify-content: space-between;
@@ -34,8 +68,12 @@ body {
 
     width: 100%;
     background: var(--card-bg);
-    color: var(--text-colour);
     font-family: monospace;
+}
+
+.links-container a {
+    color: var(--text-colour);
+    text-decoration: none;
 }
 
 .links-left {
@@ -44,7 +82,7 @@ body {
     gap: 0.2rem;
     flex: 1;
     min-width: 0;
-    padding: 2px 0 2px 0;
+    padding: 2px 0;
 }
 
 .links-right {
@@ -53,24 +91,16 @@ body {
     flex-shrink: 0;
 }
 
-.links-container a {
-    text-decoration: none;
-    color: var(--text-colour);
-}
-
 .contact {
-    width: fit-content;
     margin: 0;
     padding: 5px;
-    text-wrap: nowrap;
-    display: inline-block;
+    white-space: nowrap;
 }
 
 .logos {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    flex-wrap: nowrap;
     white-space: nowrap;
 }
 
@@ -79,29 +109,18 @@ body {
     height: 20px;
     object-fit: contain;
     flex-shrink: 0;
-    padding: 0;
 }
 
-.social-link {
+.social-link, .email {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    text-decoration: none;
     white-space: nowrap;
     flex-shrink: 0;
 }
 
 .social-link span:hover {
     text-decoration: underline;
-}
-
-.email {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    text-decoration: none;
-    white-space: nowrap;
-    flex-shrink: 0;   
 }
 
 /* Remove the link text on smaller screens */
@@ -119,11 +138,7 @@ body {
         height: 30px;
     }
 
-    .contact {
-        font-size: 1.25em;
-    }
-
-    .email {
+    .contact, .email {
         font-size: 1.25em;
     }
 }
@@ -151,92 +166,78 @@ body {
     }
 }
 
+/* =========================================
+   Name and Typewriter Animation
+========================================= */
+
 .main-content {
     width: 100%;
 }
 
-.content-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .fullname-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    margin: 0;
 }
 
 .fullname {
-    padding-top: 30px;
-    padding-bottom: 20px;
-    position: flex;
+    padding: 30px 10px 20px;
     text-align: center;
     font-family: monospace;
 }
 
 .fullname h1 {
-    padding: 0;
     margin: 0;
-    font-family: monospace;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 3em; 
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.fullname p {
+    font-size: 1em;
+    margin: 0;
 }
 
 .typewriter {
     width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
     border-right: 2px solid;
     animation:
-        typing 2s steps(11) forwards,
+        typing 2s steps(11, end) forwards,
         blink 1s step-end infinite;
 }
 
 @keyframes typing {
-  to { width: 100%; }
+  to { width: 11ch; }
 }
 
 @keyframes blink {
   50% { border-color: transparent; }
 }
 
-.fullname p {
-    font-size: 1em;
-    padding: 0;
-    margin: 0;
+/* =========================================
+   Main Container
+========================================= */
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .container {
-    max-width: 1300px;
-    position: relative;
-    margin: 10px 50px 10px 50px;
-    padding: 30px 30px 30px 30px;
+    width: min(100% - 2rem, var(--container-width));
+    margin: 10px auto;
+    padding: clamp(15px, 3vw, 30px);
+
     border-radius: 20px;
     box-shadow: 0 0 20px var(--shadow-colour);
     background: var(--container-bg);
 }
 
-.profile-picture {
-    width: 50%;
-    max-width: 20vw;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 0px;
-    object-fit: cover;
-    object-position: top;
-    border: 4px solid black;
-}
-
-@media (min-width: 500px) {
-    .profile-picture {
-        max-width: 150px;
-        margin-right: 20px;
-        margin-bottom: 10px;
-    }
-}
+/* =========================================
+   Bio and Profile Photo
+========================================= */
 
 .bio-container {
     width: 100%;
@@ -245,63 +246,53 @@ body {
     align-items: center;
 }
 
+.profile-picture {
+    width: clamp(100px, 20vw, 150px);
+    aspect-ratio: 1 / 1;
+    float: left;
+    margin: 0 20px 10px 0;
+
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 4px solid black;
+}
+
 .bio p {
     max-width: 800px;
     font-size: 1.1em;
     margin: 0;
 }
 
-.items-container {
-    display: column;
-    max-width: 1300px;
-}
+/* =========================================
+   Cards and Grid Layout
+========================================= */
 
-.disc-video {
-    border-radius: 25px;
-    width: 70vw;
-    height: 70vw;
-    overflow: hidden;
-    padding: 5px;
+.items-container {
+    columns: 1;
+    column-gap: 16px;
+    width: 100%;
 }
 
 @media (min-width: 800px) {
     .items-container {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .left-hand-items {
-        flex: 1;
-    }
-
-    .right-hand-items {
-        flex: 1;
-    }
-
-    .disc-video {
-        width: 35vw;
-        height: 35vw;
-        max-width: 540px;
-        max-height: 540px;
+        columns: 2;
     }
 }
 
-.outer-item {
+.outer-item, .video-item {
+    display: inline-block;
+    width: 100%;
+
     padding: 10px;
-    margin: 15px;
+    margin: 8px 0;
+
     border-left: 5px solid black;
     border-bottom: 5px solid black;
-    border-radius: 15px;
-    background-color: white;
-}
+    border-radius: var(--card-radius);
+    background: white;
 
-.items-container h3 {
-    font-size: 1.1em;
-}
-
-.items-container p {
-    font-size: 1em;
+    break-inside: avoid;
 }
 
 .inner-item {
@@ -309,11 +300,32 @@ body {
     color: var(--text-colour);
 }
 
+.items-container h3, .video-item h3 {
+    font-size: 1.1em;
+}
+
+.items-container p {
+    font-size: 1em;
+}
+
+/* =========================================
+   Card Hover Effects
+========================================= */
+
+.outer-item {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transition: 
+        opacity 0.25s ease, 
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
 .outer-item:hover {
     opacity: 0.75;
-    transition: all 0.25s linear ease;
     color: white; 
-    background-size: cover;
 }
 
 #return:hover {
@@ -345,19 +357,21 @@ body {
     background-image: url("./movies/disc.gif");
 }
 
-.video-item {
-    padding: 10px;
-    margin: 15px;
-    border-left: 5px solid black;
-    border-bottom: 5px solid black;
-    border-radius: 15px;
-    background-color: white;
-}
+/* =========================================
+   Disc Videos
+========================================= */
 
 .video-item h3 {
-    font-size: 1.1em;
     color: var(--text-colour);
     text-align: center;
     margin-bottom: 5px;
     text-decoration: underline;
+}
+
+.disc-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--card-radius);
+    aspect-ratio: 1;
 }

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="style.css">
+<html lang="en-gb">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Matt Cusack | Disc Movies</title>
+
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="images/sparkle.png">
+
+    <script src="scripts/particles.js" defer></script>
+    <script src="scripts/app.js" defer></script>
 </head>
 
-<!-- Load in the header html file -->
-<script>
-    fetch('header.html').then(response => response.text()).then(data => {document.getElementById('header').innerHTML = data;});
-</script>
-
 <body>
+    <div id="particles-js"></div>
+
     <div class="all">
         <!-- Header, common to all pages -->
          <div id="header"></div>
@@ -35,60 +38,53 @@
         <div class="content-container">
             <div class="container">
                 <div class="items-container">
-                    <div class="left-hand-items">
-
-                        <div class="video-item">
-                            <h3>The First Disc of γ<sub>1</sub> Zoom 1</h3>
-                            <video controls class="disc-video">
-                                <source src="./movies/gamma1zoom1sink1crop.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-item">
-                            <h3>The First Disc of γ<sub>1</sub> Zoom 3</h3>
-                            <video controls class="disc-video">
-                                <source src="./movies/gamma1zoom3sink1crop.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-item">
-                            <h3>The First Disc of γ<sub>1000</sub> Zoom 1</h3>
-                            <video controls class="disc-video">
-                                <source src="./movies/gamma1000zoom1sink1crop.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-item">
-                            <h3>The First Disc of γ<sub>1000</sub> Zoom 3</h3>
-                            <video controls class="disc-video">
-                                <source src="./movies/gamma1000zoom3sink1crop.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                    <div class="video-item">
+                        <h3>The First Disc of γ<sub>1</sub> Zoom 1</h3>
+                        <video controls class="disc-video" preload="metadata">
+                            <source src="./movies/gamma1zoom1sink1crop.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    
-                    <div class="right-hand-items">
-                        <div class="video-item">
-                            <h3>The First Disc of γ<sub>1</sub> Zoom 2</h3>
-                            <video controls class="disc-video">
-                                <source src="./movies/gamma1zoom2sink1crop.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-item">
-                            <h3>The First Disc of γ<sub>1</sub> Zoom 4</h3>
-                            <video controls class="disc-video">
-                                <source src="./movies/gamma1zoom4sink1crop.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-item">
-                            <h3>The First Disc of γ<sub>1000</sub> Zoom 2</h3>
-                            <video controls class="disc-video">
-                                <source src="./movies/gamma1000zoom2sink1crop.mp4" type="video/mp4">
-                            </video>
-                        </div> 
-
-                        <a class="inner-item" href="./index.html">
-                            <div class="outer-item" id="return">
-                                <h3>Return to Main Page</h3>
-                            </div>                        
-                        </a>
+                    <div class="video-item">
+                        <h3>The First Disc of γ<sub>1</sub> Zoom 2</h3>
+                        <video controls class="disc-video" preload="metadata">
+                            <source src="./movies/gamma1zoom2sink1crop.mp4" type="video/mp4">
+                        </video>
                     </div>
+                    <div class="video-item">
+                        <h3>The First Disc of γ<sub>1</sub> Zoom 3</h3>
+                        <video controls class="disc-video" preload="metadata">
+                            <source src="./movies/gamma1zoom3sink1crop.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-item">
+                        <h3>The First Disc of γ<sub>1</sub> Zoom 4</h3>
+                        <video controls class="disc-video" preload="metadata">
+                            <source src="./movies/gamma1zoom4sink1crop.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-item">
+                        <h3>The First Disc of γ<sub>1000</sub> Zoom 1</h3>
+                        <video controls class="disc-video" preload="metadata">
+                            <source src="./movies/gamma1000zoom1sink1crop.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-item">
+                        <h3>The First Disc of γ<sub>1000</sub> Zoom 2</h3>
+                        <video controls class="disc-video" preload="metadata">
+                            <source src="./movies/gamma1000zoom2sink1crop.mp4" type="video/mp4">
+                        </video>
+                    </div> 
+                    <div class="video-item">
+                        <h3>The First Disc of γ<sub>1000</sub> Zoom 3</h3>
+                        <video controls class="disc-video" preload="metadata">
+                            <source src="./movies/gamma1000zoom3sink1crop.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <a class="inner-item" href="./index.html">
+                        <div class="outer-item" id="return">
+                            <h3>Return to Main Page</h3>
+                        </div>                        
+                    </a>
                 </div>
             </div>
         </div>

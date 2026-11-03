@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-gb">
-<link rel="stylesheet" href="style.css">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Matt Cusack | Cardiff PhD Student</title>
+
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="images/sparkle.png">
+
+    <script src="scripts/particles.js" defer></script>
+    <script src="scripts/app.js" defer></script>
 </head>
 
-<!-- Load in the header html file -->
-<script>
-    fetch('header.html').then(response => response.text()).then(data => {document.getElementById('header').innerHTML = data;});
-</script>
-
 <body>
-    <div class ="all">
+    <div id="particles-js"></div>
+
+    <div class="all">
         <!-- Header, common to all pages -->
-         <div id="header"></div>
+        <div id="header"></div>
 
         <!-- Background Image for the Website -->
         <div class="background-wrapper"></div>
@@ -39,7 +42,7 @@
                             <img src="./images/me.jpg" class="profile-picture" alt="Image of Me!">
                             <p> <b>Hi!</b> 👋 I'm Matt, an <b>astrophysics PhD student</b> at Cardiff University working on simulations of <b>star formation</b>.
 
-                                I'm particularly interested in how the <b>local radiation envrionment</b> affects that star formation, and have explored how this affects both <b>star</b> and <b>disc</b> properties.
+                                I'm particularly interested in how the <b>local radiation environment</b> affects that star formation, and have explored how this affects both <b>star</b> and <b>disc</b> properties.
 
                                 You can see the results of these studies below, as well as other stuff I've been working on. <i>Feel free to get in touch if you like what you see!</i>
                             </p>
@@ -50,51 +53,48 @@
 
                     <!-- Links Section, contains two columns of block links, shrinks to one column on smaller screens -->
                     <div class="items-container">
-                        <div class="left-hand-items">
-                            <a class="inner-item" href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.536.3518C/abstract">
-                                <div class="outer-item" id="stardust" >
-                                    <h3>The Fragmentation of Molecular Clouds in Starburst Envrionments</h3>
-                                    <p>Read the paper on ADS!</p>
-                                </div>
-                            </a>
+                        <a class="inner-item" href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.536.3518C/abstract">
+                            <div class="outer-item" id="stardust" >
+                                <h3>The Fragmentation of Molecular Clouds in Starburst Environments</h3>
+                                <p>Read the paper on ADS!</p>
+                            </div>
+                        </a>
 
-                            <a class="inner-item" href="https://www.github.com/clonematthew/arepoICgen">
-                                <div class="outer-item" id="arepoICgen">
-                                    <h3>arepoICgen</h3>
-                                    <p>A python package for generating initial conditions for the AREPO code.</p>
-                                </div>
-                            </a>
+                        <a class="inner-item" href="https://ui.adsabs.harvard.edu/abs/2026MNRAS.549ag880C/abstract">
+                            <div class="outer-item" id="starswirl">
+                                <h3>The Impact of Radiation Environment on the Lifetimes and Evolution of Circumstellar Discs</h3>
+                                <p>Check out the paper on ADS!</p> 
+                            </div>
+                        </a>
 
-                            <a class="inner-item" href="https://www.github.com/clonematthew/apricot">
-                                <div class="outer-item" id="apricot">
-                                    <h3>apricot</h3>   
-                                    <p>A Fortran module for generating column-density images from AREPO snapshots.</p>
-                                </div>
-                            </a>
-                        </div>
+                        <a class="inner-item" href="https://www.github.com/clonematthew/arepoICgen">
+                            <div class="outer-item" id="arepoICgen">
+                                <h3>arepoICgen</h3>
+                                <p>A python package for generating initial conditions for the AREPO code.</p>
+                            </div>
+                        </a>
 
-                        <div class="right-hand-items">
-                            <a class="inner-item" href="https://ui.adsabs.harvard.edu/abs/2026MNRAS.549ag880C/abstract">
-                                <div class="outer-item" id="starswirl">
-                                    <h3>The Impact of Radiation Envrionment on the Liftimes and Evolution of Circumstellar Discs</h3>
-                                    <p>Check out the paper on ADS!</p> 
-                                </div>
-                            </a>
+                        <a class="inner-item" href="https://www.github.com/clonematthew/apricot">
+                            <div class="outer-item" id="apricot">
+                                <h3>apricot</h3>   
+                                <p>A Fortran module for generating column-density images from AREPO snapshots.</p>
+                            </div>
+                        </a>
 
-                            <a class="inner-item" href="https://www.github.com/clonematthew/aRead">
-                                <div class="outer-item" id="aRead">
-                                    <h3>aRead</h3>
-                                    <p>A python module for reading AREPO snapshots in the HDF5 format.</p>
-                                </div>
-                            </a>
+                        <a class="inner-item" href="https://www.github.com/clonematthew/aRead">
+                            <div class="outer-item" id="aRead">
+                                <h3>aRead</h3>
+                                <p>A python module for reading AREPO snapshots in the HDF5 format.</p>
+                            </div>
+                        </a>
 
-                            <a class="inner-item" href="movies.html">
-                                <div class="outer-item" id="movies">
-                                    <h3>Disc Movies</h3>
-                                    <p>Movies of the discs from my 2026 paper!</p>
-                                </div>
-                            </a>
-                        </div>
+                        <a class="inner-item" href="movies.html">
+                            <div class="outer-item" id="movies">
+                                <h3>Disc Movies</h3>
+                                <p>Movies of the discs from my 2026 paper!</p>
+                            </div>
+                        </a>
+
                     </div>
 
                     <hr />
