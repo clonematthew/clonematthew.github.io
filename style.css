@@ -9,10 +9,26 @@
     --body-bg: #B1D3B9;
     --shadow-colour: #659287;
     --card-bg: #EAEFEF;
+    --item-bg: white;
+    --border-colour: black;
 
     /* Layout */
     --container-width: 1300px;
     --card-radius: 15px;
+
+    color-scheme: light;
+}
+
+[data-theme="dark"] {
+    --text-colour: #E6F2DD;
+    --container-bg: #697565;
+    --body-bg: #181C14;
+    --shadow-colour: #050D09;
+    --card-bg: #3C3D37;
+    --item-bg: #3C3D37;
+    --border-colour: white;
+
+    color-scheme: dark;
 }
 
 /* =========================================
@@ -86,9 +102,42 @@ body {
 }
 
 .links-right {
-    margin-left: auto;
-    padding: 5px;
-    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.divider {
+    align-self: stretch;
+    width: 2px;
+    margin: 4px 0 4px 0;
+    background: var(--text-colour);
+    opacity: 0.8;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    padding: 2px 0px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-colour);
+}
+
+/* Dark Mode Toggle */
+.theme-toggle .icon-sun { display: none; }
+
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* Flip GitHub logo in dark mode */
+[data-theme="dark"] .logo.invert-dark {
+    filter: invert(1);
+}
+
+body, .links-container, .container, .outer-item, .video-item {
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .contact {
@@ -124,7 +173,7 @@ body {
 }
 
 /* Remove the link text on smaller screens */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
     .social-link span {
         display: none;
     }
@@ -144,7 +193,7 @@ body {
 }
 
 /* Now remove the e-mail text on phones */
-@media (max-width: 610px) {
+@media (max-width: 680px) {
     .links-right span {
         display: none;
     }
@@ -156,7 +205,7 @@ body {
 }
 
 /* Remove contact text on smallest screens */
-@media (max-width: 450px) {
+@media (max-width: 530px) {
     .contact {
         display: none;
     }
@@ -260,7 +309,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
-    border: 4px solid black;
+    border: 4px solid var(--border-colour);
 }
 
 .bio p {
@@ -292,10 +341,10 @@ body {
     padding: 10px;
     margin: 8px 0;
 
-    border-left: 5px solid black;
-    border-bottom: 5px solid black;
+    border-left: 5px solid var(--border-colour);
+    border-bottom: 5px solid var(--border-colour);
     border-radius: var(--card-radius);
-    background: white;
+    background: var(--item-bg);
 
     break-inside: avoid;
 }
